@@ -59,12 +59,8 @@ src
 - IntelliJ or compatible IDE
 
 ### 🚀 Launch
-Run from terminal:
-```bash
-./gradlew bootRun
-```
 
-Or in IntelliJ:
+In IntelliJ:
 > Right-click `WebappApplication.java` → Run
 
 ---
