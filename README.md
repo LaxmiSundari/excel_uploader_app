@@ -16,24 +16,36 @@ This Spring Boot application loads employee data from an Excel `.xlsx` file into
 
 ## 🧱 Project Structure
 
-src/
-├── main/
-│ ├── java/com/cloud/webapp/
-│ │ ├── controller/ # (optional if REST added)
-│ │ ├── service/ # Interfaces
-│ │ ├── serviceimpl/ # Implementations
-│ │ ├── repository/ # JpaRepository
-│ │ ├── entity/ # JPA models
-│ │ ├── DTO/ # Data Transfer Objects
-│ │ ├── mapper/ # MapStruct mappers
-│ │ ├── exceptions/ # Custom exception classes and handler
-│ │ ├── utils/ # Excel parsing logic
-│ │ ├── bootstrap/ # ApplicationRunner to trigger load
-│ │ └── WebappApplication.java
-│ └── resources/
-│ ├── employees.xlsx # Excel file to load
-│ └── application.properties
-
+```plaintext
+src
+├── main
+│   ├── java
+│   │   └── com.cloud.webapp
+│   │       ├── WebappApplication.java       # Spring Boot entry point
+│   │       ├── bootstrap
+│   │       │   └── DataLoaderRunner.java    # Loads Excel at startup
+│   │       ├── DTO
+│   │       │   ├── EmployeeDTO.java
+│   │       │   └── ResponseDTO.java
+│   │       ├── entity
+│   │       │   └── EmployeeEntity.java      # JPA model
+│   │       ├── exceptions
+│   │       │   ├── GlobalExceptionHandler.java
+│   │       │   └── Types
+│   │       │       └── GeneralServiceException.java
+│   │       ├── mapper
+│   │       │   └── EmployeeMapper.java
+│   │       ├── repository
+│   │       │   └── EmployeeRepository.java
+│   │       ├── service
+│   │       │   └── EmployeeService.java
+│   │       ├── serviceimpl
+│   │       │   └── EmployeeServiceImpl.java
+│   │       └── utils
+│   │           └── ExcelParserUtil.java     # Apache POI-based Excel reader
+│   └── resources
+│       ├── application.properties           # H2 and JPA config
+│       └── employees.xlsx                   # Input file to be loaded
 
 ---
 
